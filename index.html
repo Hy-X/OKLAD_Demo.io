@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OKLAD Dataset - Oklahoma Labeled AI Dataset for Earthquake Research | Oklahoma Geological Survey</title>
+    <meta name="description" content="OKLAD (Oklahoma Labeled AI Dataset) for earthquake research. A comprehensive dataset with 52,193 earthquake events and 1,139,808 seismic traces for machine learning and AI applications in earthquake detection and analysis by the Oklahoma Geological Survey.">
+    
+    <!-- Enhanced SEO Meta Tags -->
+    <meta name="keywords" content="OKLAD, Oklahoma Labeled AI Dataset, earthquake research, seismic data, machine learning, AI, Oklahoma Geological Survey, earthquake detection, seismic analysis, induced seismicity, Oklahoma earthquakes, seismic monitoring, geophysics, seismology, Dr. Hongyu Xiao">
+    <meta name="author" content="Dr. Hongyu Xiao, Oklahoma Geological Survey, University of Oklahoma">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourusername.github.io/OKLAD_Github_Page/">
+    
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://yourusername.github.io/OKLAD_Github_Page/sitemap.xml">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="OKLAD Dataset - Oklahoma Labeled AI Dataset for Earthquake Research">
+    <meta property="og:description" content="A comprehensive dataset with 52,193 earthquake events and 1,139,808 seismic traces for machine learning and AI applications in earthquake research by the Oklahoma Geological Survey.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/OKLAD_Github_Page/">
+    <meta property="og:site_name" content="Oklahoma Geological Survey">
+    <meta property="og:image" content="https://yourusername.github.io/OKLAD_Github_Page/assets/logos/dataset-logo.png">
+    <meta property="og:image:alt" content="OKLAD Dataset Logo">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OKLAD Dataset - Oklahoma Labeled AI Dataset for Earthquake Research">
+    <meta name="twitter:description" content="A comprehensive dataset with 52,193 earthquake events and 1,139,808 seismic traces for machine learning and AI applications in earthquake research.">
+    <meta name="twitter:image" content="https://yourusername.github.io/OKLAD_Github_Page/assets/logos/dataset-logo.png">
+    <meta name="twitter:site" content="@OUGeosciences">
+    <meta name="twitter:creator" content="@OUGeosciences">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#2c3e50">
+    <meta name="msapplication-TileColor" content="#0d6efd">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="OKLAD Dataset">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "OKLAD: Oklahoma Labeled AI Dataset for Earthquake Research",
+        "description": "A comprehensive dataset with 52,193 earthquake events and 1,139,808 seismic traces for machine learning and AI applications in earthquake research",
+        "url": "https://yourusername.github.io/OKLAD_Github_Page/",
+        "identifier": "https://yourusername.github.io/OKLAD_Github_Page/",
+        "creator": {
+            "@type": "Organization",
+            "name": "Oklahoma Geological Survey",
+            "url": "https://www.ou.edu/ogs",
+            "parentOrganization": {
+                "@type": "Organization",
+                "name": "University of Oklahoma",
+                "url": "https://www.ou.edu"
+            }
+        },
+        "author": [
+            {
+                "@type": "Person",
+                "name": "Dr. Hongyu Xiao",
+                "email": "hongyu.xiao-1@ou.edu",
+                "url": "https://hy-x.github.io/",
+                "jobTitle": "Seismologist",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Oklahoma Geological Survey"
+                }
+            },
+            {
+                "@type": "Person",
+                "name": "Dr. Jake Walter",
+                "email": "jwalter@ou.edu",
+                "url": "https://www.jakewalter.net/",
+                "jobTitle": "State Seismologist",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Oklahoma Geological Survey"
+                }
+            },
+            {
+                "@type": "Person",
+                "name": "Dr. Paul Ogwari",
+                "email": "paul.ogwari@ou.edu",
+                "url": "https://www.ou.edu/ogs/staff/ogwari_paul",
+                "jobTitle": "Research Scientist",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Oklahoma Geological Survey"
+                }
+            }
+        ],
+        
+        "publisher": {
+            "@type": "Organization",
+            "name": "Oklahoma Geological Survey",
+            "url": "https://www.ou.edu/ogs"
+        },
+        "datePublished": "2024",
+        "dateModified": "2024",
+        "version": "1.0",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "keywords": ["earthquake research", "seismic data", "machine learning", "AI", "induced seismicity", "Oklahoma", "geophysics"],
+        "spatialCoverage": {
+            "@type": "Place",
+            "name": "Oklahoma, United States"
+        },
+        "temporalCoverage": "2010/2024",
+        "variableMeasured": [
+            "Seismic waveform data",
+            "Earthquake event parameters",
+            "Location data",
+            "Magnitude information"
+        ],
+        "distribution": [
+            {
+                "@type": "DataDownload",
+                "encodingFormat": "CSV",
+                "contentUrl": "https://yourusername.github.io/OKLAD_Github_Page/data/metadata.csv"
+            },
+            {
+                "@type": "DataDownload",
+                "encodingFormat": "HDF5",
+                "contentUrl": "https://yourusername.github.io/OKLAD_Github_Page/data/waveforms.hdf5"
+            }
+        ],
+        "citation": [
+            {
+                "@type": "CreativeWork",
+                "name": "OKLAD: Oklahoma Labeled AI Dataset for Earthquake Research",
+                "author": "Walter, J. I., Xiao, H., & Ogwari, P.",
+                "datePublished": "2024",
+                "publisher": "Oklahoma Geological Survey"
+            }
+        ],
+        "curator": [
+            {
+                "@type": "Person",
+                "name": "Dr. Hongyu Xiao",
+                "email": "hongyu.xiao-1@ou.edu",
+                "url": "https://hy-x.github.io/"
+            },
+            {
+                "@type": "Person",
+                "name": "Dr. Jake Walter",
+                "email": "jwalter@ou.edu",
+                "url": "https://www.jakewalter.net/"
+            },
+            {
+                "@type": "Person",
+                "name": "Dr. Paul Ogwari",
+                "email": "paul.ogwari@ou.edu",
+                "url": "https://www.ou.edu/ogs/staff/ogwari_paul"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#home">
+                <!-- Institution Logo -->
+                <img src="assets/logos/ogs-logo.jpg" alt="Oklahoma Geological Survey Logo" class="institution-logo me-2" style="height: 40px; width: auto;">
+                <i class="fas fa-database me-2"></i>OKLAD Dataset
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#description">Description</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#compilation">Compilation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#usage">Usage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#demo">Demo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cite">Cite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#download">Download</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <!-- Dataset Logo/Brand -->
+                    <div class="mb-4">
+                        <img src="assets/logos/dataset-logo.png" alt="OKLAD Dataset Logo" class="dataset-logo mb-3" style="max-height: 80px; width: auto;">
+                    </div>
+                    <h1 class="display-4 fw-bold text-white mb-4">
+                        OKLAD Dataset
+                    </h1>
+                    <p class="lead text-white-50 mb-2">
+                        <strong>Oklahoma Labeled AI Dataset</strong> for Earthquake Research
+                    </p>
+                    <p class="lead text-white-50 mb-4">
+                        A comprehensive, high-quality dataset designed for machine learning and AI applications in earthquake research, developed by the Oklahoma Geological Survey.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#download" class="btn btn-primary btn-lg">
+                            <i class="fas fa-download me-2 text-white"></i>Download Dataset
+                        </a>
+                        <a href="#demo" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-play me-2"></i>View Demo
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="hero-image">
+                        <i class="fas fa-chart-line fa-8x text-white-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Description Section -->
+    <section id="description" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Dataset Description</h2>
+                    <p class="section-subtitle">Comprehensive overview of the OKLAD (Oklahoma Labeled AI Dataset) structure and contents for earthquake research</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <h4>Overview</h4>
+                        <p>The OKLAD (Oklahoma Labeled AI Dataset) contains 52,193 earthquake events with over 1.1 million seismic traces, covering earthquake data collected from Oklahoma seismic networks from 2010 to 2024. It provides a comprehensive foundation for AI and machine learning applications in earthquake detection and analysis.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-table"></i>
+                        </div>
+                        <h4>Structure</h4>
+                        <p>The OKLAD dataset consists of two files: <strong>metadata.csv</strong> (tabular metadata for all events and traces) and <strong>waveforms.hdf5</strong> (all seismic waveform data in HDF5 format). Each trace contains 12,000 data points (120 seconds at 100 Hz sampling rate) and includes 29 metadata features. The data spans 14 years of continuous monitoring (2010–2024).</p>
+                        <p><strong>Number of Features:</strong> 29</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4>Statistics</h4>
+                        <p>Total Events: 52,193<br>
+                        Total Traces: 1,139,808<br>
+                        Time Range: 2010-2024<br>
+                        Sampling Rate: 100 Hz<br>
+                        Trace Length: 120 seconds<br>
+                        Data Size: 384 MB (CSV), 153 GB (HDF5 waveforms)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Detailed Statistics Table -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-table me-2"></i>Dataset Statistics</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Metric</th>
+                                            <th>Value</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Total Events</strong></td>
+                                            <td>52,193</td>
+                                            <td>Number of earthquake events in the dataset</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Total Traces</strong></td>
+                                            <td>1,139,808</td>
+                                            <td>Number of seismic waveform traces collected</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Time Range</strong></td>
+                                            <td>2010-2024</td>
+                                            <td>Data collection period spanning 14 years</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Sampling Rate</strong></td>
+                                            <td>100 Hz</td>
+                                            <td>Data acquisition frequency (100 samples per second)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Trace Length</strong></td>
+                                            <td>120 seconds</td>
+                                            <td>Duration of each seismic waveform trace</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Features</strong></td>
+                                            <td>29</td>
+                                            <td>Number of seismic and metadata features per event</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>File Size</strong></td>
+                                            <td>CSV: 384 MB<br>HDF5 (waveforms): 153 GB</td>
+                                            <td>Compressed CSV and full waveform HDF5 file sizes</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature List Section -->
+    <section id="feature-list" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Feature List</h2>
+                    <p class="section-subtitle">All 29 features organized by category in the OKLAD dataset</p>
+                </div>
+            </div>
+            
+            <!-- Mind Map Container -->
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="mind-map-container">
+                        <!-- Central Node -->
+                        <div class="central-node">
+                            <div class="central-content">
+                                <i class="fas fa-database fa-2x text-white mb-2"></i>
+                                <h4 class="text-white mb-0">OKLAD Dataset</h4>
+                                <p class="text-white-50 mb-0">29 Features</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature Branches Row -->
+                        <div class="feature-branches-row">
+                            <!-- Station Features Branch -->
+                            <div class="feature-branch station-branch">
+                                <div class="branch-header">
+                                    <i class="fas fa-map-marker-alt fa-lg text-primary"></i>
+                                    <h5 class="mb-0">Station Features</h5>
+                                    <span class="feature-count">5 features</span>
+                                </div>
+                                <div class="feature-list">
+                                    <div class="feature-item">
+                                        <span class="feature-number">1</span>
+                                        <span class="feature-name">station_network_code</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">2</span>
+                                        <span class="feature-name">station_code</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">3</span>
+                                        <span class="feature-name">station_latitude_deg</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">4</span>
+                                        <span class="feature-name">station_longitude_deg</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">5</span>
+                                        <span class="feature-name">station_elevation_m</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Source Features Branch -->
+                            <div class="feature-branch source-branch">
+                                <div class="branch-header">
+                                    <i class="fas fa-bullseye fa-lg text-success"></i>
+                                    <h5 class="mb-0">Source Features</h5>
+                                    <span class="feature-count">12 features</span>
+                                </div>
+                                <div class="feature-list">
+                                    <div class="feature-item">
+                                        <span class="feature-number">6</span>
+                                        <span class="feature-name">source_id</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">7</span>
+                                        <span class="feature-name">source_origin_time</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">8</span>
+                                        <span class="feature-name">source_latitude_deg</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">9</span>
+                                        <span class="feature-name">source_longitude_deg</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">10</span>
+                                        <span class="feature-name">source_horizontal_uncertainty_km</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">11</span>
+                                        <span class="feature-name">source_depth_km</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">12</span>
+                                        <span class="feature-name">source_depth_uncertainty_km</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">13</span>
+                                        <span class="feature-name">source_magnitude</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">14</span>
+                                        <span class="feature-name">source_magnitude_type</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">15</span>
+                                        <span class="feature-name">source_magnitude_author</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">16</span>
+                                        <span class="feature-name">source_distance_deg</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">17</span>
+                                        <span class="feature-name">source_distance_km</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Trace Features Branch -->
+                            <div class="feature-branch trace-branch">
+                                <div class="branch-header">
+                                    <i class="fas fa-wave-square fa-lg text-info"></i>
+                                    <h5 class="mb-0">Trace Features</h5>
+                                    <span class="feature-count">12 features</span>
+                                </div>
+                                <div class="feature-list">
+                                    <div class="feature-item">
+                                        <span class="feature-number">18</span>
+                                        <span class="feature-name">trace_channel</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">19</span>
+                                        <span class="feature-name">trace_p_arrival_sample</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">20</span>
+                                        <span class="feature-name">trace_p_status</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">21</span>
+                                        <span class="feature-name">trace_p_weight</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">22</span>
+                                        <span class="feature-name">path_p_travel_sec</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">23</span>
+                                        <span class="feature-name">trace_s_arrival_sample</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">24</span>
+                                        <span class="feature-name">trace_s_status</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">25</span>
+                                        <span class="feature-name">trace_s_weight</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">26</span>
+                                        <span class="feature-name">path_back_azimuth_deg</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">27</span>
+                                        <span class="feature-name">trace_start_time</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">28</span>
+                                        <span class="feature-name">trace_category</span>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-number">29</span>
+                                        <span class="feature-name">trace_name</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature Summary -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Feature Distribution Summary</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <div class="col-md-4">
+                                    <div class="feature-summary-item">
+                                        <div class="summary-icon station-icon">
+                                            <i class="fas fa-map-marker-alt fa-2x"></i>
+                                        </div>
+                                        <h4 class="text-primary">5</h4>
+                                        <p class="mb-0">Station Features</p>
+                                        <small class="text-muted">Location and identification data</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="feature-summary-item">
+                                        <div class="summary-icon source-icon">
+                                            <i class="fas fa-bullseye fa-2x"></i>
+                                        </div>
+                                        <h4 class="text-success">12</h4>
+                                        <p class="mb-0">Source Features</p>
+                                        <small class="text-muted">Earthquake event parameters</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="feature-summary-item">
+                                        <div class="summary-icon trace-icon">
+                                            <i class="fas fa-wave-square fa-2x"></i>
+                                        </div>
+                                        <h4 class="text-info">12</h4>
+                                        <p class="mb-0">Trace Features</p>
+                                        <small class="text-muted">Waveform and arrival data</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dataset Curator Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Dataset Team</h2>
+                    <p class="section-subtitle">Meet the principal investigators and researchers behind the OKLAD dataset</p>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <!-- Dr. Jake Walter - Principal Investigator -->
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="curator-avatar mb-3">
+                                <img src="assets/profiles/jake-walter.jpg" alt="Dr. Jake Walter" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <i class="fas fa-user-tie fa-4x text-primary" style="display: none;"></i>
+                            </div>
+                            <h4 class="mb-3">Dr. Jake Walter</h4>
+                            <p class="text-muted mb-2"><strong>Principal Investigator</strong></p>
+                            <p class="text-muted mb-2">State Seismologist, Oklahoma Geological Survey</p>
+                            <p class="text-muted mb-3">University of Oklahoma</p>
+                            
+                            <p class="mb-3">Dr. Jake Walter is the State Seismologist at the Oklahoma Geological Survey. His research focuses on induced seismicity, ice sheet dynamics, tectonic tremor, and seismic triggering. He conducts research in Oklahoma, Texas, Antarctica, Costa Rica, Greenland, and Alaska.</p>
+                            
+                            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                <a href="https://www.jakewalter.net/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+                                    <i class="fas fa-globe me-2"></i>Website
+                                </a>
+                                <a href="mailto:jwalter@ou.edu" class="btn btn-outline-secondary">
+                                    <i class="fas fa-envelope me-2"></i>Contact
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dr. Hongyu Xiao - Seismologist -->
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="curator-avatar mb-3">
+                                <img src="assets/profiles/hongyu-xiao.jpg" alt="Dr. Hongyu Xiao" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <i class="fas fa-user-tie fa-4x text-primary" style="display: none;"></i>
+                            </div>
+                            <h4 class="mb-3">Dr. Hongyu Xiao</h4>
+                            <p class="text-muted mb-2"><strong>Seismologist</strong></p>
+                            <p class="text-muted mb-2">Research Associate, Oklahoma Geological Survey</p>
+                            <p class="text-muted mb-3">University of Oklahoma</p>
+                            
+                            <p class="mb-3">Dr. Hongyu Xiao is a Ph.D. in Seismology and Tectonics from the University of Illinois at Urbana-Champaign. His research focuses on induced seismicity and carbon storage management, specializing in advanced seismological techniques and machine learning applications for earthquake detection and analysis.</p>
+                            
+                            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                <a href="https://hy-x.github.io/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+                                    <i class="fas fa-globe me-2"></i>Website
+                                </a>
+                                <a href="mailto:hongyu.xiao-1@ou.edu" class="btn btn-outline-secondary">
+                                    <i class="fas fa-envelope me-2"></i>Contact
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dr. Paul Ogwari - Research Scientist -->
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="curator-avatar mb-3">
+                                <img src="assets/profiles/paul-ogwari.jpg" alt="Dr. Paul Ogwari" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <i class="fas fa-user-tie fa-4x text-primary" style="display: none;"></i>
+                            </div>
+                            <h4 class="mb-3">Dr. Paul Ogwari</h4>
+                            <p class="text-muted mb-2"><strong>Research Scientist</strong></p>
+                            <p class="text-muted mb-2">Oklahoma Geological Survey</p>
+                            <p class="text-muted mb-3">University of Oklahoma</p>
+                            
+                            <p class="mb-3">Dr. Paul Ogwari is a Research Scientist at the Oklahoma Geological Survey. He specializes in seismic data analysis, earthquake detection algorithms, and the development of machine learning tools for seismological research and induced seismicity monitoring.</p>
+                            
+                            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                <a href="https://www.ou.edu/ogs/staff/ogwari_paul" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+                                    <i class="fas fa-globe me-2"></i>Profile
+                                </a>
+                                <a href="mailto:paul.ogwari@ou.edu" class="btn btn-outline-secondary">
+                                    <i class="fas fa-envelope me-2"></i>Contact
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brandon Mace - Field Technician -->
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="curator-avatar mb-3">
+                                <img src="assets/profiles/brandon-mace.jpg" alt="Brandon Mace" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <i class="fas fa-user-cog fa-4x text-primary" style="display: none;"></i>
+                            </div>
+                            <h4 class="mb-3">Brandon Mace</h4>
+                            <p class="text-muted mb-2"><strong>Field Technician</strong></p>
+                            <p class="text-muted mb-2">Oklahoma Geological Survey</p>
+                            <p class="text-muted mb-3">University of Oklahoma</p>
+                            <p class="mb-3">Brandon Mace is the seismic team's Field Technician at the Oklahoma Geological Survey. He maintains and troubleshoots seismic stations across Oklahoma, bringing extensive experience from the U.S. Forest Service in data collection and field operations.</p>
+                            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                <a href="https://www.ou.edu/ogs/staff/Brandon_Mace" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+                                    <i class="fas fa-globe me-2"></i>OGS Profile
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Andrew Thiel - Seismic Analyst -->
+                <div class="col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="curator-avatar mb-3">
+                                <img src="assets/profiles/andrew-thiel.jpg" alt="Andrew Thiel" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <i class="fas fa-user-cog fa-4x text-primary" style="display: none;"></i>
+                            </div>
+                            <h4 class="mb-3">Andrew Thiel</h4>
+                            <p class="text-muted mb-2"><strong>Seismic Analyst</strong></p>
+                            <p class="text-muted mb-2">Oklahoma Geological Survey</p>
+                            <p class="text-muted mb-3">University of Oklahoma</p>
+                            <p class="mb-3">Andrew Thiel is a Seismic Analyst at the Oklahoma Geological Survey. He joined OGS in 2016 and specializes in earthquake location and seismic data analysis for Oklahoma. He holds an M.S. in geology from OU, with research focused on paleomagnetic analysis techniques and has extensive experience in both research and teaching.</p>
+                            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                <a href="https://www.ou.edu/ogs/staff/thiel_andrew" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+                                    <i class="fas fa-globe me-2"></i>OGS Profile
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compilation Method Section -->
+    <section id="compilation" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Compilation Method</h2>
+                    <p class="section-subtitle">How the dataset was collected, processed, and prepared</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4><i class="fas fa-cogs me-2"></i>Data Collection Process</h4>
+                            <p>The OKLAD dataset was compiled through a systematic process involving:</p>
+                            <ol>
+                                <li><strong>Source Identification:</strong> [Describe data sources]</li>
+                                <li><strong>Data Extraction:</strong> [Explain extraction methods]</li>
+                                <li><strong>Quality Control:</strong> [Describe quality measures]</li>
+                                <li><strong>Preprocessing:</strong> [Explain preprocessing steps]</li>
+                                <li><strong>Validation:</strong> [Describe validation process]</li>
+                            </ol>
+                            
+                            <h4 class="mt-4"><i class="fas fa-filter me-2"></i>Preprocessing Steps</h4>
+                            <ul>
+                                <li>Data cleaning and normalization</li>
+                                <li>Feature engineering and selection</li>
+                                <li>Outlier detection and removal</li>
+                                <li>Data splitting for training/validation/testing</li>
+                                <li>Format standardization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Technical Details</h5>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Collection Period:</strong><br>2010 - 2024</p>
+                            <p><strong>Update Frequency:</strong><br>[Monthly/Quarterly/Annually]</p>
+                            <p><strong>Data Format:</strong><br>CSV (<code>metadata.csv</code>) and HDF5 (<code>waveforms.hdf5</code>)</p>
+                            <p><strong>License:</strong><br>This dataset is provided free of charge for non-profit academic research and educational purposes. Commercial use is prohibited without prior written permission from the authors. Please contact the authors to discuss any intended commercial applications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Institutional Affiliations -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-university me-2"></i>Institutional Affiliations</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <h6>Research Institutions</h6>
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="assets/logos/ogs-logo.jpg" alt="Oklahoma Geological Survey Logo" class="institution-logo me-3" style="height: 50px; width: auto;">
+                                        <div>
+                                            <strong>Oklahoma Geological Survey</strong><br>
+                                            
+                                            <small class="text-muted">OU Mewbourne College of Earth and Energy</small><br>
+                                            <small class="text-muted">The University of Oklahoma</small><br>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>Collaborating Partners</h6>
+                                    <div class="partner-logos">
+                                        <img src="assets/logos/partner-logo-1.png" alt="Partner 1" class="partner-logo">
+                                        <img src="assets/logos/partner-logo-2.png" alt="Partner 2" class="partner-logo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usage Instructions Section -->
+    <section id="usage" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">How to Use</h2>
+                    <p class="section-subtitle">Step-by-step instructions for downloading and using the dataset</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-download me-2"></i>Download Instructions</h5>
+                        </div>
+                        <div class="card-body">
+                            <ol>
+                                <li>Click the download button below</li>
+                                <li>Extract the compressed file</li>
+                                <li>Navigate to the dataset directory</li>
+                                <li>Read the README file for detailed information</li>
+                            </ol>
+                            <div class="mt-3">
+                                <a href="#download" class="btn btn-primary text-white">
+                                    <i class="fas fa-download me-2 text-white"></i>Download Dataset
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-code me-2"></i>Code Examples</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6>Python (Pandas)</h6>
+                            <pre><code>import pandas as pd
+
+# Load the metadata (CSV format)
+df = pd.read_csv('metadata.csv')
+
+# Basic exploration
+print(df.head())
+print(df.info())</code></pre>
+                            
+                            <h6 class="mt-3">Python (HDF5)</h6>
+                            <pre><code>import h5py
+
+# Load the waveform data (HDF5 format)
+with h5py.File('waveforms.hdf5', 'r') as f:
+    # Access waveform groups and datasets
+    traces = f['traces'][:]
+    # Access metadata if included in HDF5
+    # metadata = f['metadata'][:]</code></pre>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- File Structure -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-folder me-2"></i>File Structure</h5>
+                        </div>
+                        <div class="card-body">
+                            <pre><code>oklad_dataset/
+├── data/
+│   ├── metadata.csv            # Tabular metadata for all events and traces
+│   └── waveforms.hdf5          # All seismic waveform data (HDF5 format)
+├── docs/
+│   ├── README.md               # Detailed documentation
+│   ├── schema.md               # Data schema description
+│   └── examples/               # Usage examples
+├── scripts/
+│   ├── preprocessing.py        # Data preprocessing scripts
+│   └── validation.py           # Data validation scripts
+└── LICENSE                     # Dataset license</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visualizations Section -->
+    <section id="visualizations" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Visualizations</h2>
+                    <p class="section-subtitle">Sample data plots illustrating the OKLAD dataset's structure and content</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-chart-line me-2"></i>Figure 1. Magnitude Event Distribution</h5>
+                        </div>
+                        <a href="assets/plots/event_ridgeplot_over_years.png" target="_blank">
+                            <img src="assets/plots/event_ridgeplot_over_years.png" class="card-img-top" alt="Figure 1. Magnitude Event Distribution Over the Years">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Temporal distribution of earthquake magnitudes in Oklahoma from 2010 to 2024.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Figure 2. Station Event Count Distribution</h5>
+                        </div>
+                        <a href="assets/plots/bar_and_pie_seismic_event_counts_ver_1.png" target="_blank">
+                            <img src="assets/plots/bar_and_pie_seismic_event_counts_ver_1.png" class="card-img-top" alt="Figure 2. Station Event Count Distribution">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Distribution of seismic event counts across stations in the network.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-chart-area me-2"></i>Figure 3. Event Stream Graph</h5>
+                        </div>
+                        <a href="assets/plots/stream.png" target="_blank">
+                            <img src="assets/plots/stream.png" class="card-img-top" alt="Figure 3. Event Stream Graph Over the Years">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Event counts and activity trends in Oklahoma over the years.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Figure 4. Channel Distribution</h5>
+                        </div>
+                        <a href="assets/plots/Channel_Distribution_Pie_Chart.png" target="_blank">
+                            <img src="assets/plots/Channel_Distribution_Pie_Chart.png" class="card-img-top" alt="Figure 4. Channel Distribution">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Distribution of seismic data channels in the dataset.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-network-wired me-2"></i>Figure 5. Network Distribution</h5>
+                        </div>
+                        <a href="assets/plots/Network_distribution_bar.png" target="_blank">
+                            <img src="assets/plots/Network_distribution_bar.png" class="card-img-top" alt="Figure 5. Network Distribution">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Distribution of seismic networks contributing to the OKLAD dataset.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-compass me-2"></i>Figure 6. Azimuth Distribution</h5>
+                        </div>
+                        <a href="assets/plots/Azimuth_Distribution_Pie_Chart.png" target="_blank">
+                            <img src="assets/plots/Azimuth_Distribution_Pie_Chart.png" class="card-img-top" alt="Figure 6. Azimuth Distribution">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Azimuth distribution of earthquake events in the dataset.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-chart-scatter me-2"></i>Figure 7. Magnitude and Depth Distribution</h5>
+                        </div>
+                        <a href="assets/plots/Magnitude_Depth_distribution.png" target="_blank">
+                            <img src="assets/plots/Magnitude_Depth_distribution.png" class="card-img-top" alt="Figure 7. Magnitude and Depth Distribution">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text">Distribution of earthquake magnitudes and depths for all recorded events.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demonstration Section -->
+    <section id="demo" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Demonstrations</h2>
+                    <p class="section-subtitle">Interactive examples and use cases of the dataset</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Data Visualization Demo</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="demo-placeholder text-center">
+                                <i class="fas fa-chart-bar fa-3x text-muted"></i>
+                                <p class="mt-3">Interactive charts and visualizations will be displayed here</p>
+                                <button class="btn btn-outline-primary d-inline-flex align-items-center" onclick="loadDemo()">
+                                    <i class="fas fa-play me-2"></i>
+                                    <span>Load Demo</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-robot me-2"></i>Sample Analysis</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="demo-placeholder">
+                                <i class="fas fa-microchip fa-3x text-muted"></i>
+                                <p class="mt-3">Machine learning model demonstrations using the dataset</p>
+                                <button class="btn btn-outline-primary" onclick="runAnalysis()">
+                                    <i class="fas fa-cog me-2"></i>Run Analysis
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+            
+            <!-- Use Cases -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Use Cases</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="use-case-item">
+                                        <i class="fas fa-brain text-primary"></i>
+                                        <h6>Earthquake Detection</h6>
+                                        <p>Train AI models to automatically detect and classify earthquake events from seismic waveform data.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="use-case-item">
+                                        <i class="fas fa-chart-pie text-success"></i>
+                                        <h6>Seismic Analysis</h6>
+                                        <p>Perform statistical analysis and pattern recognition on earthquake characteristics and distributions.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="use-case-item">
+                                        <i class="fas fa-graduation-cap text-warning"></i>
+                                        <h6>Research & Education</h6>
+                                        <p>Use for academic research, benchmarking seismic algorithms, and educational purposes in seismology.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Citation Section -->
+    <section id="cite" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">How to Cite</h2>
+                    <p class="section-subtitle">Proper citation formats for academic and research use</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-quote-left me-2"></i>BibTeX</h5>
+                        </div>
+                        <div class="card-body">
+                            <pre><code>@dataset{oklad_dataset,
+  title={OKLAD: Oklahoma Labeled AI Dataset for Earthquake Research},
+  author={Xiao, Hongyu and Walter, Jake I. and Ogwari, Paul},
+  year={2024},
+  institution={Oklahoma Geological Survey, University of Oklahoma},
+  curator={Xiao, Hongyu and Walter, Jake I. and Ogwari, Paul},
+  url={https://github.com/yourusername/OKLAD_Github_Page},
+  note={Version 1.0, Seismologist: Dr. Hongyu Xiao, Principal Investigator: Dr. Jake Walter}
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-file-text me-2"></i>APA Style</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Xiao, H., Walter, J. I., & Ogwari, P. (2024). <em>OKLAD: Oklahoma Labeled AI Dataset for Earthquake Research</em> [Dataset]. Oklahoma Geological Survey, University of Oklahoma. https://github.com/yourusername/OKLAD_Github_Page</p>
+                            <p class="mt-2"><small><strong>Principal Investigator:</strong> <a href="https://www.jakewalter.net/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Dr. Jake Walter</a> (<a href="mailto:jwalter@ou.edu" class="text-decoration-none">jwalter@ou.edu</a>)</small></p>
+                            <p class="mt-1"><small><strong>Seismologist:</strong> <a href="https://hy-x.github.io/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Dr. Hongyu Xiao</a> (<a href="mailto:hongyu.xiao-1@ou.edu" class="text-decoration-none">hongyu.xiao-1@ou.edu</a>)</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Citation Guidelines -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Citation Guidelines</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Please cite this dataset in any publication that uses it</li>
+                                <li>Include the version number and access date</li>
+                                <li>For commercial use, please contact the authors</li>
+                                <li>If you find the dataset useful, consider citing our related papers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title text-white">Download Dataset</h2>
+                    <p class="section-subtitle text-white-50">Get the complete OKLAD dataset for your research</p>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6">
+                    <div class="download-card text-center">
+                        <i class="fas fa-file-csv fa-3x mb-3"></i>
+                        <h5>Metadata (CSV)</h5>
+                        <p>Tabular metadata for all events and traces.<br><strong>File size: 384 MB</strong></p>
+                        <a href="#" class="btn btn-light" onclick="downloadDataset('csv')">
+                            <i class="fas fa-download me-2"></i>Download metadata.csv
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="download-card text-center">
+                        <i class="fas fa-database fa-3x mb-3"></i>
+                        <h5>Waveforms (HDF5)</h5>
+                        <p>All seismic waveform data in HDF5 format.<br><strong>File size: 153 GB</strong></p>
+                        <a href="#" class="btn btn-light" onclick="downloadDataset('hdf5')">
+                            <i class="fas fa-download me-2"></i>Download waveforms.hdf5
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <!-- Institution Logo in Footer -->
+                        <img src="assets/logos/ogs-logo.jpg" alt="Oklahoma Geological Survey Logo" class="institution-logo-footer me-2" style="height: 30px; width: auto;">
+                        <h5 class="mb-0">OKLAD Dataset</h5>
+                    </div>
+                    <p class="text-light">A comprehensive dataset for earthquake research and development by the Oklahoma Geological Survey.</p>
+
+                </div>
+                <div class="col-md-4 text-center">
+                    <p class="text-light mb-2">
+                        <i class="fas fa-code me-2"></i>Built with ❤️ for the research community
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="text-white mx-2" title="GitHub"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-white mx-2" title="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white mx-2" title="Email"><i class="fas fa-envelope fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <p class="text-light mb-1">Contact Us:</p>
+                    <p class="text-light mb-1"><small><strong>Principal Investigator:</strong> <a href="mailto:jwalter@ou.edu" class="text-white text-decoration-none">jwalter@ou.edu</a></small></p>
+                    <p class="text-light mb-1"><small><strong>Seismologist:</strong> <a href="mailto:hongyu.xiao-1@ou.edu" class="text-white text-decoration-none">hongyu.xiao-1@ou.edu</a></small></p>
+                    <p class="text-light mb-1"><small><strong>Research Scientist:</strong> <a href="mailto:paul.ogwari@ou.edu" class="text-white text-decoration-none">paul.ogwari@ou.edu</a></small></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    <script>
+    function loadDemo() {
+        const demoPlaceholder = document.querySelector('.demo-placeholder');
+        if (demoPlaceholder) {
+            // Pick a random number between 10 and 22
+            const n = Math.floor(Math.random() * 13) + 10;
+            const imgPath = `assets/plots/Prediction${n}_Predictions_Plot.png`;
+            demoPlaceholder.innerHTML = `
+                <img src="${imgPath}" alt="Prediction ${n} Plot" class="img-fluid rounded shadow mb-3" style="max-width:100%;height:auto;">
+                <div class="mt-3">
+                    <button class="btn btn-outline-primary d-inline-flex align-items-center" onclick="resetDemo()">
+                        <i class="fas fa-refresh me-2"></i>
+                        <span>Reset Demo</span>
+                    </button>
+                </div>
+            `;
+        }
+    }
+    
+    function resetDemo() {
+        const demoPlaceholder = document.querySelector('.demo-placeholder');
+        if (demoPlaceholder) {
+            demoPlaceholder.innerHTML = `
+                <i class="fas fa-chart-bar fa-3x text-muted"></i>
+                <p class="mt-3">Interactive charts and visualizations will be displayed here</p>
+                <button class="btn btn-outline-primary d-inline-flex align-items-center" onclick="loadDemo()">
+                    <i class="fas fa-play me-2"></i>
+                    <span>Load Demo</span>
+                </button>
+            `;
+        }
+    }
+    </script>
+</body>
+</html> 
