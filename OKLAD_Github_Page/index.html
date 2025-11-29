@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OKLAD Dataset - Download and Usage Tutorial</title>
+    <meta name="description" content="Download and usage tutorial for the OKLAD (Oklahoma Labeled AI Dataset) for earthquake research. Learn how to download the dataset and guidelines for effective usage.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-database me-2"></i>OKLAD Dataset
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#download">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#usage">Usage Guidelines</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tutorial Section -->
+    <section id="tutorial" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Download and Usage Tutorial</h2>
+                    <p class="section-subtitle">Learn how to download and effectively use the OKLAD dataset for earthquake research.</p>
+                </div>
+            </div>
+
+            <!-- Download Section -->
+            <div class="row" id="download">
+                <div class="col-12">
+                    <h3>Downloading the OKLAD Dataset</h3>
+                    <p>To download the OKLAD dataset, follow these steps:</p>
+                    <ol>
+                        <li>Visit the <a href="https://yourusername.github.io/OKLAD_Github_Page/data/metadata.csv" target="_blank">metadata.csv</a> link to download the metadata file.</li>
+                        <li>Visit the <a href="https://yourusername.github.io/OKLAD_Github_Page/data/waveforms.hdf5" target="_blank">waveforms.hdf5</a> link to download the seismic waveform data.</li>
+                        <li>Ensure you have sufficient storage space, as the total size of the dataset is approximately 153 GB for the HDF5 file.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Usage Guidelines Section -->
+            <div class="row mt-5" id="usage">
+                <div class="col-12">
+                    <h3>Usage Guidelines</h3>
+                    <p>Once you have downloaded the dataset, follow these guidelines to use it effectively:</p>
+                    <ul>
+                        <li>Use Python libraries such as <strong>pandas</strong> for handling the CSV metadata file and <strong>h5py</strong> for accessing the HDF5 waveform data.</li>
+                        <li>Familiarize yourself with the dataset structure, including the features available in the metadata file.</li>
+                        <li>Consider preprocessing the data for your specific machine learning or AI applications, such as normalization or feature extraction.</li>
+                        <li>Refer to the documentation provided in the README.md file for additional insights and examples.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2024 Oklahoma Geological Survey. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

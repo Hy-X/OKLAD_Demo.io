@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oklahoma Event Stream Plot Tutorial - OKLAD Dataset</title>
+    <meta name="description" content="Learn how to create event stream plots for earthquake data visualization using the OKLAD dataset. Step-by-step tutorial with code examples.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-database me-2"></i>OKLAD Dataset
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#tutorials">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#download">Download</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tutorial Header -->
+    <section class="tutorial-header py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="index.html#tutorials">Tutorials</a></li>
+                            <li class="breadcrumb-item active">Event Stream Plot</li>
+                        </ol>
+                    </nav>
+                    
+                    <h1 class="display-5 fw-bold mb-3">Oklahoma Event Stream Plot Tutorial</h1>
+                    <p class="lead mb-4">Learn how to create compelling event stream plots to visualize earthquake patterns and temporal distributions in the OKLAD dataset.</p>
+                    
+                    <div class="tutorial-meta">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <div class="meta-item">
+                                    <i class="fas fa-clock text-primary"></i>
+                                    <span>Duration: 15-20 minutes</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="meta-item">
+                                    <i class="fas fa-code text-primary"></i>
+                                    <span>Python, Matplotlib, Pandas</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="meta-item">
+                                    <i class="fas fa-download text-primary"></i>
+                                    <span>Includes sample data</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="meta-item">
+                                    <i class="fas fa-star text-primary"></i>
+                                    <span>Difficulty: Intermediate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="tutorial-preview-image">
+                        <img src="assets/plots/event-stream-preview.png" alt="Event Stream Plot Preview" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorial Content -->
+    <section class="tutorial-content py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <!-- Overview -->
+                    <div class="tutorial-section">
+                        <h2><i class="fas fa-info-circle text-primary me-2"></i>Overview</h2>
+                        <p>Event stream plots are powerful tools for visualizing temporal patterns in earthquake data. This tutorial will teach you how to create event stream plots that show earthquake occurrences over time, with different visual elements to represent magnitude, depth, and other characteristics.</p>
+                        
+                        <div class="alert alert-info">
+                            <i class="fas fa-lightbulb me-2"></i>
+                            <strong>What you'll learn:</strong>
+                            <ul class="mb-0 mt-2">
+                                <li>Load and preprocess earthquake data from the OKLAD dataset</li>
+                                <li>Create event stream plots with magnitude-based sizing</li>
+                                <li>Add depth information using color coding</li>
+                                <li>Customize plot appearance and add annotations</li>
+                                <li>Export high-quality visualizations for publications</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Prerequisites -->
+                    <div class="tutorial-section">
+                        <h2><i class="fas fa-list-check text-primary me-2"></i>Prerequisites</h2>
+                        <p>Before starting this tutorial, make sure you have:</p>
+                        <ul>
+                            <li>Python 3.7+ installed</li>
+                            <li>Required packages: pandas, matplotlib, numpy, seaborn</li>
+                            <li>OKLAD dataset downloaded (metadata.csv and waveforms.hdf5)</li>
+                            <li>Basic familiarity with Python data analysis</li>
+                        </ul>
+                        
+                        <div class="code-block">
+                            <h6>Install Required Packages</h6>
+                            <pre><code class="language-bash">pip install pandas matplotlib numpy seaborn h5py</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Data Loading -->
+                    <div class="tutorial-section">
+                        <h2><i class="fas fa-database text-primary me-2"></i>Step 1: Loading the Data</h2>
+                        <p>First, let's load the OKLAD dataset metadata and prepare it for visualization.</p>
+                        
+                        <div class="code-block">
+                            <h6>Load and Explore the Data</h6>
+                            <pre><code class="language-python">import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from datetime import datetime
+
+# Load the metadata
+df = pd.read_csv('metadata.csv')
+
+# Display basic information
+print(f"Dataset shape: {df.shape}")
+print(f"Date range: {df['timestamp'].min()} to {df['timestamp'].max()}")
+print(f"Magnitude range: {df['magnitude'].min():.1f} to {df['magnitude'].max():.1f}")
+
+# Convert timestamp to datetime
+df['timestamp'] = pd.to_datetime(df['timestamp'])
+df['date'] = df['timestamp'].dt.date
+
+# Display first few rows
+print("\nFirst few events:")
+print(df[['event_id', 'timestamp', 'magnitude', 'depth', 'latitude', 'longitude']].head())</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Basic Event Stream Plot -->
+                    <div class="tutorial-section">
+                        <h2><i class="fas fa-chart-line text-primary me-2"></i>Step 2: Creating a Basic Event Stream Plot</h2>
+                        <p>Now let's create a basic event stream plot showing earthquake occurrences over time.</p>
+                        
+                        <div class="code-block">
+                            <h6>Basic Event Stream Plot</h6>
+                            <pre><code class="language-python"># Set up the plot
+plt.figure(figsize=(15, 8))
+
+# Create scatter plot with magnitude-based sizing
+scatter = plt.scatter(df['timestamp'], df['magnitude'], 
+                     s=df['magnitude'] * 20,  # Size based on magnitude
+                     c=df['depth'],           # Color based on depth
+                     cmap='viridis',          # Color map
+                     alpha=0.7,               # Transparency
+                     edgecolors='black',      # Edge color
+                     linewidth=0.5)           # Edge width
+
+# Add colorbar
+cbar = plt.colorbar(scatter)
+cbar.set_label('Depth (km)', fontsize=12)
+
+# Customize the plot
+plt.xlabel('Date', fontsize=14)
+plt.ylabel('Magnitude', fontsize=14)
+plt.title('Oklahoma Earthquake Event Stream (2010-2024)', fontsize=16, fontweight='bold')
+
+# Rotate x-axis labels for better readability
+plt.xticks(rotation=45)
+
+# Add grid
+plt.grid(True, alpha=0.3)
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plot
+plt.show()</code></pre>
+                        </div>
+                        
+                        <div class="tutorial-note">
+                            <i class="fas fa-exclamation-triangle text-warning me-2"></i>
+                            <strong>Note:</strong> The size of each point is proportional to the earthquake magnitude, making larger earthquakes more prominent in the visualization.
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Advanced Customization -->
+                    <div class="tutorial-section">
+                        <h2><i class="fas fa-palette text-primary me-2"></i>Step 3: Advanced Customization</h2>
+                        <p>Let's enhance the plot with better styling, annotations, and additional features.</p>
+                        
+                        <div class="code-block">
+                            <h6>Enhanced Event Stream Plot</h6>
+                            <pre><code class="language-python"># Set up the plot with better styling
+fig, ax = plt.subplots(figsize=(16, 10))
+
+# Create scatter plot with enhanced styling
+scatter = ax.scatter(df['timestamp'], df['magnitude'], 
+                    s=df['magnitude'] * 25,
+                    c=df['depth'],
+                    cmap='plasma',
+                    alpha=0.8,
+                    edgecolors='white',
+                    linewidth=0.8)
+
+# Add colorbar with better styling
+cbar = plt.colorbar(scatter, ax=ax, shrink=0.8)
+cbar.set_label('Depth (km)', fontsize=14, fontweight='bold')
+cbar.ax.tick_params(labelsize=12)
+
+# Customize axes
+ax.set_xlabel('Date', fontsize=14, fontweight='bold')
+ax.set_ylabel('Magnitude', fontsize=14, fontweight='bold')
+ax.set_title('Oklahoma Earthquake Event Stream Analysis\n2010-2024', 
+             fontsize=18, fontweight='bold', pad=20)
+
+# Add grid with better styling
+ax.grid(True, alpha=0.3, linestyle='--', linewidth=0.8)
+
+# Rotate x-axis labels
+plt.setp(ax.get_xticklabels(), rotation=45, ha='right')
+
+# Add statistics text box
+stats_text = f'Total Events: {len(df):,}\nMax Magnitude: {df["magnitude"].max():.1f}\nDate Range: {df["timestamp"].min().strftime("%Y-%m")} to {df["timestamp"].max().strftime("%Y-%m")}'
+ax.text(0.02, 0.98, stats_text, transform=ax.transAxes, 
+        bbox=dict(boxstyle="round,pad=0.5", facecolor="white", alpha=0.8),
+        verticalalignment='top', fontsize=12)
+
+# Adjust layout
+plt.tight_layout()
+
+# Save the plot
+plt.savefig('oklahoma_event_stream.png', dpi=300, bbox_inches='tight')
+plt.show()</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Interactive Features -->
+                    <div class="tutorial-section">
+                        <h2><i class="fas fa-mouse-pointer text-primary me-2"></i>Step 4: Adding Interactive Features</h2>
+                        <p>For more advanced analysis, you can create interactive plots using libraries like Plotly.</p>
+                        
+                        <div class="code-block">
+                            <h6>Interactive Plot with Plotly</h6>
+                            <pre><code class="language-python">import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+# Create interactive scatter plot
+fig = px.scatter(df, x='timestamp', y='magnitude',
+                 size='magnitude',
+                 color='depth',
+                 hover_data=['event_id', 'latitude', 'longitude'],
+                 title='Interactive Oklahoma Earthquake Event Stream',
+                 labels={'timestamp': 'Date', 'magnitude': 'Magnitude', 'depth': 'Depth (km)'})
+
+# Update layout
+fig.update_layout(
+    width=1200,
+    height=600,
+    title_x=0.5,
+    font=dict(size=14)
+)
+
+# Show the interactive plot
+fig.show()
+
+# Save as HTML for web sharing
+fig.write_html('oklahoma_event_stream_interactive.html')</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Summary -->
+                    <div class="tutorial-section">
+                        <h2><i class="fas fa-check-circle text-primary me-2"></i>Summary</h2>
+                        <p>In this tutorial, you've learned how to:</p>
+                        <ul>
+                            <li>Load and preprocess earthquake data from the OKLAD dataset</li>
+                            <li>Create basic event stream plots with magnitude-based sizing</li>
+                            <li>Enhance visualizations with color coding for depth</li>
+                            <li>Add professional styling and annotations</li>
+                            <li>Create interactive plots for web sharing</li>
+                        </ul>
+                        
+                        <div class="alert alert-success">
+                            <i class="fas fa-download me-2"></i>
+                            <strong>Download the complete notebook:</strong> 
+                            <a href="#" class="alert-link">oklahoma_event_stream_tutorial.ipynb</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="tutorial-sidebar">
+                        <!-- Quick Navigation -->
+                        <div class="sidebar-section">
+                            <h5><i class="fas fa-list me-2"></i>Quick Navigation</h5>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#overview">Overview</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#prerequisites">Prerequisites</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#step1">Step 1: Data Loading</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#step2">Step 2: Basic Plot</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#step3">Step 3: Customization</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#step4">Step 4: Interactive</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Related Tutorials -->
+                        <div class="sidebar-section">
+                            <h5><i class="fas fa-book me-2"></i>Related Tutorials</h5>
+                            <div class="related-tutorials">
+                                <a href="#" class="related-tutorial">
+                                    <h6>Event History Analysis</h6>
+                                    <p>Analyze historical earthquake patterns and trends</p>
+                                </a>
+                                <a href="#" class="related-tutorial">
+                                    <h6>Machine Learning for Earthquake Detection</h6>
+                                    <p>Build ML models for earthquake classification</p>
+                                </a>
+                                <a href="#" class="related-tutorial">
+                                    <h6>Data Preprocessing Guide</h6>
+                                    <p>Prepare seismic data for analysis</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Resources -->
+                        <div class="sidebar-section">
+                            <h5><i class="fas fa-link me-2"></i>Resources</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#"><i class="fas fa-download me-2"></i>Sample Data</a></li>
+                                <li><a href="#"><i class="fas fa-file-code me-2"></i>Complete Code</a></li>
+                                <li><a href="#"><i class="fas fa-book me-2"></i>Documentation</a></li>
+                                <li><a href="#"><i class="fas fa-question-circle me-2"></i>FAQ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2024 Oklahoma Geological Survey. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Prism.js for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html> 

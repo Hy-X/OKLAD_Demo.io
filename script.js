@@ -470,3 +470,429 @@ function initSearch() {
 
 // Initialize search if needed
 // initSearch(); // Uncomment to enable search functionality 
+
+// Data Visualization Functions
+function updateDataVisualization() {
+    const featureSelect = document.getElementById('featureSelect');
+    const timeRangeSelect = document.getElementById('timeRangeSelect');
+    const magnitudeSelect = document.getElementById('magnitudeSelect');
+    const canvas = document.getElementById('dataVisualization');
+    
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Simulate data based on selections
+    const feature = featureSelect.value;
+    const timeRange = timeRangeSelect.value;
+    const magnitude = magnitudeSelect.value;
+    
+    // Draw visualization based on selections
+    drawDataVisualization(ctx, feature, timeRange, magnitude);
+}
+
+function drawDataVisualization(ctx, feature, timeRange, magnitude) {
+    const width = ctx.canvas.width;
+    const height = ctx.canvas.height;
+    
+    // Set up gradient background
+    const gradient = ctx.createLinearGradient(0, 0, width, height);
+    gradient.addColorStop(0, '#667eea');
+    gradient.addColorStop(1, '#764ba2');
+    
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
+    
+    // Draw chart based on feature type
+    switch(feature) {
+        case 'magnitude':
+            drawMagnitudeDistribution(ctx, width, height);
+            break;
+        case 'depth':
+            drawDepthDistribution(ctx, width, height);
+            break;
+        case 'time':
+            drawTemporalDistribution(ctx, width, height);
+            break;
+        case 'location':
+            drawSpatialDistribution(ctx, width, height);
+            break;
+    }
+}
+
+function drawMagnitudeDistribution(ctx, width, height) {
+    // Simulate magnitude distribution data
+    const magnitudes = [1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0];
+    const counts = [15000, 12000, 8000, 5000, 3000, 1500, 800, 400];
+    
+    const maxCount = Math.max(...counts);
+    const barWidth = width / magnitudes.length * 0.8;
+    const barSpacing = width / magnitudes.length * 0.2;
+    
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+    ctx.font = '14px Arial';
+    ctx.textAlign = 'center';
+    
+    magnitudes.forEach((mag, i) => {
+        const x = (width / magnitudes.length) * i + barSpacing / 2;
+        const barHeight = (counts[i] / maxCount) * (height * 0.7);
+        const y = height - barHeight - 50;
+        
+        // Draw bar
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.fillRect(x, y, barWidth, barHeight);
+        
+        // Draw border
+        ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(x, y, barWidth, barHeight);
+        
+        // Draw labels
+        ctx.fillStyle = 'white';
+        ctx.fillText(mag.toString(), x + barWidth / 2, height - 20);
+        ctx.fillText(counts[i].toLocaleString(), x + barWidth / 2, y - 10);
+    });
+    
+    // Draw title
+    ctx.fillStyle = 'white';
+    ctx.font = 'bold 18px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Magnitude Distribution', width / 2, 30);
+}
+
+function drawDepthDistribution(ctx, width, height) {
+    // Simulate depth distribution
+    const depths = [0, 5, 10, 15, 20, 25, 30];
+    const counts = [8000, 12000, 15000, 10000, 6000, 3000, 1000];
+    
+    const maxCount = Math.max(...counts);
+    const barWidth = width / depths.length * 0.8;
+    const barSpacing = width / depths.length * 0.2;
+    
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+    ctx.font = '14px Arial';
+    ctx.textAlign = 'center';
+    
+    depths.forEach((depth, i) => {
+        const x = (width / depths.length) * i + barSpacing / 2;
+        const barHeight = (counts[i] / maxCount) * (height * 0.7);
+        const y = height - barHeight - 50;
+        
+        // Draw bar
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+        ctx.fillRect(x, y, barWidth, barHeight);
+        
+        // Draw border
+        ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(x, y, barWidth, barHeight);
+        
+        // Draw labels
+        ctx.fillStyle = 'white';
+        ctx.fillText(depth + 'km', x + barWidth / 2, height - 20);
+        ctx.fillText(counts[i].toLocaleString(), x + barWidth / 2, y - 10);
+    });
+    
+    // Draw title
+    ctx.fillStyle = 'white';
+    ctx.font = 'bold 18px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Depth Distribution', width / 2, 30);
+}
+
+function drawTemporalDistribution(ctx, width, height) {
+    // Simulate temporal distribution
+    const years = [2010, 2012, 2014, 2016, 2018, 2020, 2022, 2024];
+    const counts = [2000, 3000, 5000, 8000, 12000, 15000, 18000, 20000];
+    
+    const maxCount = Math.max(...counts);
+    const pointSpacing = width / (years.length - 1);
+    
+    ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    
+    years.forEach((year, i) => {
+        const x = (width / (years.length - 1)) * i;
+        const y = height - 50 - (counts[i] / maxCount) * (height * 0.7);
+        
+        if (i === 0) {
+            ctx.moveTo(x, y);
+        } else {
+            ctx.lineTo(x, y);
+        }
+        
+        // Draw point
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, 2 * Math.PI);
+        ctx.fill();
+        
+        // Draw labels
+        ctx.fillStyle = 'white';
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(year.toString(), x, height - 20);
+        ctx.fillText(counts[i].toLocaleString(), x, y - 15);
+    });
+    
+    ctx.stroke();
+    
+    // Draw title
+    ctx.fillStyle = 'white';
+    ctx.font = 'bold 18px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Temporal Distribution', width / 2, 30);
+}
+
+function drawSpatialDistribution(ctx, width, height) {
+    // Simulate spatial distribution (heat map style)
+    const gridSize = 20;
+    const cols = Math.floor(width / gridSize);
+    const rows = Math.floor(height / gridSize);
+    
+    for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+            const intensity = Math.random() * 0.8 + 0.2;
+            const x = i * gridSize;
+            const y = j * gridSize;
+            
+            ctx.fillStyle = `rgba(255, 255, 255, ${intensity})`;
+            ctx.fillRect(x, y, gridSize, gridSize);
+        }
+    }
+    
+    // Draw title
+    ctx.fillStyle = 'white';
+    ctx.font = 'bold 18px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Spatial Distribution', width / 2, 30);
+}
+
+// Waveform Visualization
+function drawWaveform() {
+    const canvas = document.getElementById('waveformCanvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    const width = canvas.width;
+    const height = canvas.height;
+    
+    // Clear canvas
+    ctx.clearRect(0, 0, width, height);
+    
+    // Draw background
+    ctx.fillStyle = '#f8f9fa';
+    ctx.fillRect(0, 0, width, height);
+    
+    // Draw grid
+    ctx.strokeStyle = '#e9ecef';
+    ctx.lineWidth = 1;
+    
+    // Vertical grid lines
+    for (let i = 0; i <= width; i += 40) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, height);
+        ctx.stroke();
+    }
+    
+    // Horizontal grid lines
+    for (let i = 0; i <= height; i += 20) {
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(width, i);
+        ctx.stroke();
+    }
+    
+    // Draw waveform
+    ctx.strokeStyle = '#0d6efd';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    
+    // Simulate seismic waveform
+    for (let x = 0; x < width; x++) {
+        const time = x / width * 120; // 120 seconds
+        const amplitude = Math.sin(time * 0.5) * 0.3 + 
+                         Math.sin(time * 2) * 0.2 + 
+                         Math.sin(time * 8) * 0.1 +
+                         Math.random() * 0.1;
+        
+        const y = height / 2 + amplitude * height / 2;
+        
+        if (x === 0) {
+            ctx.moveTo(x, y);
+        } else {
+            ctx.lineTo(x, y);
+        }
+    }
+    
+    ctx.stroke();
+    
+    // Draw axis labels
+    ctx.fillStyle = '#6c757d';
+    ctx.font = '12px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Time (seconds)', width / 2, height - 5);
+    
+    ctx.save();
+    ctx.translate(10, height / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText('Amplitude', 0, 0);
+    ctx.restore();
+}
+
+// Tutorial Functions
+function initializeTutorials() {
+    // Add click handlers for tutorial cards
+    const tutorialCards = document.querySelectorAll('.tutorial-card');
+    tutorialCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            if (!e.target.closest('.btn')) {
+                // Navigate to tutorial (placeholder)
+                console.log('Navigate to tutorial:', this.querySelector('h5').textContent);
+            }
+        });
+    });
+    
+    // Add hover effects for tutorial category cards
+    const categoryCards = document.querySelectorAll('.tutorial-category-card');
+    categoryCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+}
+
+// Enhanced Download Functions
+function enhanceDownloadSection() {
+    const downloadSection = document.querySelector('#download');
+    if (!downloadSection) return;
+    
+    // Add download progress tracking
+    const downloadButtons = downloadSection.querySelectorAll('.btn-download');
+    downloadButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const downloadType = this.dataset.type;
+            const fileSize = this.dataset.size;
+            
+            // Show download progress
+            showDownloadProgress(downloadType, fileSize);
+        });
+    });
+}
+
+function showDownloadProgress(type, size) {
+    // Create progress modal
+    const modal = document.createElement('div');
+    modal.className = 'download-progress-modal';
+    modal.innerHTML = `
+        <div class="download-progress-content">
+            <h4>Downloading ${type}</h4>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+            </div>
+            <p class="mt-2">Preparing download...</p>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Simulate download progress
+    let progress = 0;
+    const progressBar = modal.querySelector('.progress-bar');
+    const progressText = modal.querySelector('p');
+    
+    const interval = setInterval(() => {
+        progress += Math.random() * 15;
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(interval);
+            progressText.textContent = 'Download complete!';
+            
+            setTimeout(() => {
+                document.body.removeChild(modal);
+            }, 1000);
+        }
+        
+        progressBar.style.width = progress + '%';
+        progressText.textContent = `Downloading... ${Math.round(progress)}%`;
+    }, 200);
+}
+
+// Initialize all new functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize existing functionality
+    incrementPageViews();
+    initSmoothScrolling();
+    initAnimations();
+    
+    // Initialize new functionality
+    initializeTutorials();
+    enhanceDownloadSection();
+    
+    // Draw initial visualizations
+    drawWaveform();
+    updateDataVisualization();
+    
+    // Add event listeners for interactive elements
+    const featureSelect = document.getElementById('featureSelect');
+    const timeRangeSelect = document.getElementById('timeRangeSelect');
+    const magnitudeSelect = document.getElementById('magnitudeSelect');
+    
+    if (featureSelect) featureSelect.addEventListener('change', updateDataVisualization);
+    if (timeRangeSelect) timeRangeSelect.addEventListener('change', updateDataVisualization);
+    if (magnitudeSelect) magnitudeSelect.addEventListener('change', updateDataVisualization);
+});
+
+// Add CSS for download progress modal
+const style = document.createElement('style');
+style.textContent = `
+    .download-progress-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+    
+    .download-progress-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        min-width: 300px;
+    }
+    
+    .download-progress-content h4 {
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+    }
+    
+    .progress {
+        height: 20px;
+        border-radius: 10px;
+        background: #e9ecef;
+        overflow: hidden;
+    }
+    
+    .progress-bar {
+        height: 100%;
+        background: var(--gradient-primary);
+        transition: width 0.3s ease;
+    }
+`;
+document.head.appendChild(style); 
