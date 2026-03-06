@@ -239,9 +239,12 @@
                     <p class="lead text-white-50 mb-4">
                         A comprehensive, high-quality dataset designed for machine learning and AI applications in earthquake research, developed by the Oklahoma Geological Survey.
                     </p>
-                    <div class="d-flex gap-3">
+                    <div class="d-flex flex-wrap gap-3">
                         <a href="#download" class="btn btn-primary btn-lg">
                             <i class="fas fa-download me-2 text-white"></i>Download Dataset
+                        </a>
+                        <a href="https://colab.research.google.com/" target="_blank" class="btn btn-warning btn-lg text-dark fw-bold">
+                            <img src="https://colab.research.google.com/img/colab_favicon_256px.png" alt="Colab" style="height: 20px; margin-right: 8px; vertical-align: text-bottom;"> Open in Colab
                         </a>
                         <a href="#demo" class="btn btn-outline-light btn-lg">
                             <i class="fas fa-play me-2"></i>View Demo
@@ -860,15 +863,34 @@ df = pd.read_csv('metadata.csv')
 print(df.head())
 print(df.info())</code></pre>
                             
+                            <h6 class="mt-3">PyTorch Dataset Loader (AI/ML)</h6>
+                            <pre><code class="language-python">import torch
+from torch.utils.data import Dataset
+import h5py
+
+class OKLADDataset(Dataset):
+    def __init__(self, h5_path):
+        self.h5_file = h5py.File(h5_path, 'r')
+        self.traces = self.h5_file['traces']
+        self.labels = self.h5_file['labels'] # e.g. magnitude limits
+        
+    def __len__(self):
+        return len(self.traces)
+        
+    def __getitem__(self, idx):
+        trace = torch.tensor(self.traces[idx], dtype=torch.float32)
+        label = torch.tensor(self.labels[idx], dtype=torch.float32)
+        return trace, label
+
+# Initialize AI dataset for training
+dataset = OKLADDataset('waveforms.hdf5')</code></pre>
+                            
                             <h6 class="mt-3">Python (HDF5)</h6>
-                            <pre><code>import h5py
+                            <pre><code class="language-python">import h5py
 
 # Load the waveform data (HDF5 format)
 with h5py.File('waveforms.hdf5', 'r') as f:
-    # Access waveform groups and datasets
-    traces = f['traces'][:]
-    # Access metadata if included in HDF5
-    # metadata = f['metadata'][:]</code></pre>
+    traces = f['traces'][:]</code></pre>
                             
                         </div>
                     </div>
@@ -922,7 +944,7 @@ with h5py.File('waveforms.hdf5', 'r') as f:
                         <h4>Data Visualization</h4>
                         <p>Learn how to create meaningful visualizations of seismic data and earthquake patterns.</p>
                         <div class="tutorial-links">
-                            <a href="#" class="btn btn-sm btn-outline-primary">
+                            <a href="tutorial.html" class="btn btn-sm btn-outline-primary">
                                 <i class="fas fa-eye me-1"></i>View Tutorial
                             </a>
                         </div>
@@ -936,7 +958,7 @@ with h5py.File('waveforms.hdf5', 'r') as f:
                         <h4>Machine Learning</h4>
                         <p>Build and train machine learning models for earthquake detection and classification.</p>
                         <div class="tutorial-links">
-                            <a href="#" class="btn btn-sm btn-outline-primary">
+                            <a href="tutorial.html" class="btn btn-sm btn-outline-primary">
                                 <i class="fas fa-eye me-1"></i>View Tutorial
                             </a>
                         </div>
@@ -950,7 +972,7 @@ with h5py.File('waveforms.hdf5', 'r') as f:
                         <h4>Data Processing</h4>
                         <p>Preprocess and prepare seismic data for analysis and modeling.</p>
                         <div class="tutorial-links">
-                            <a href="#" class="btn btn-sm btn-outline-primary">
+                            <a href="tutorial.html" class="btn btn-sm btn-outline-primary">
                                 <i class="fas fa-eye me-1"></i>View Tutorial
                             </a>
                         </div>
@@ -986,10 +1008,10 @@ with h5py.File('waveforms.hdf5', 'r') as f:
                             </div>
                         </div>
                         <div class="tutorial-actions">
-                            <a href="#" class="btn btn-primary">
+                            <a href="tutorial.html" class="btn btn-primary">
                                 <i class="fas fa-play me-2"></i>Start Tutorial
                             </a>
-                            <a href="#" class="btn btn-outline-secondary">
+                            <a href="tutorial.html" class="btn btn-outline-secondary">
                                 <i class="fas fa-download me-2"></i>Download Notebook
                             </a>
                         </div>
@@ -1016,10 +1038,10 @@ with h5py.File('waveforms.hdf5', 'r') as f:
                             </div>
                         </div>
                         <div class="tutorial-actions">
-                            <a href="#" class="btn btn-primary">
+                            <a href="tutorial.html" class="btn btn-primary">
                                 <i class="fas fa-play me-2"></i>Start Tutorial
                             </a>
-                            <a href="#" class="btn btn-outline-secondary">
+                            <a href="tutorial.html" class="btn btn-outline-secondary">
                                 <i class="fas fa-download me-2"></i>Download Notebook
                             </a>
                         </div>
